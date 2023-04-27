@@ -1,5 +1,5 @@
-import helloHomePage from "./home";
-import helloMenuPAge from "./menu";
+import homePage from "./home";
+import menuPAge from "./menu";
 import contactPage from "./contact";
 
 const div = document.createElement('div');
@@ -8,7 +8,7 @@ div.classList.add('header');
 const h1 = document.createElement('h1');
 h1.setAttribute('id', 'header');
 h1.textContent = 'Restaurant name';
-div.appendChild(h1);
+content.appendChild(h1);
 
 const btn1 = document.createElement('button');
 btn1.classList.add('btn');
@@ -26,15 +26,20 @@ btn3.textContent = "Contact";
 btn3.setAttribute('id', 'contact-btn')
 
 btn1.addEventListener('click', ()=>{
-  helloMenuPAge();
+  document.querySelector('.homeDiv').style.display = 'none';
+  document.querySelector('.menupage').style.display = 'flex';
+  document.querySelector('.contactPage').style.display = 'none';
 })
-
-btn2.addEventListener('click', ()=>{
-  helloHomePage();
-})
+btn2.addEventListener('click', ()=>{ 
+  document.querySelector('.homeDiv').style.display = 'flex';
+  document.querySelector('.menupage').style.display = 'none';
+  document.querySelector('.contactPage').style.display = 'none';
+});
 
 btn3.addEventListener('click', ()=>{
-  contactPage();
+  document.querySelector('.homeDiv').style.display = 'none';
+  document.querySelector('.menupage').style.display = 'none';
+  document.querySelector('.contactPage').style.display = 'flex';
 })
 
 
@@ -45,3 +50,6 @@ div.appendChild(btn3);
 
 
 content.appendChild(div);
+homePage();
+menuPAge();
+contactPage();
